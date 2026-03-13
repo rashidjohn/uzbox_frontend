@@ -51,7 +51,6 @@ export default function CheckoutPage() {
   const [useMyAddr,   setUseMyAddr]   = useState(false);
   const [promoCode,   setPromoCode]   = useState("");
   const [guestEmail,  setGuestEmail]  = useState("");
-  const [isLoggedIn,  setIsLoggedIn]  = useState<boolean | null>(null);
   const [promoResult, setPromoResult] = useState<{ discount_amount: number; final_total: number; code: string } | null>(null);
   const [promoError,  setPromoError]  = useState("");
 
@@ -78,10 +77,6 @@ export default function CheckoutPage() {
   const delivery      = subtotal > DELIVERY_THRESHOLD ? 0 : DELIVERY_FEE;
   const promoDiscount = promoResult?.discount_amount ?? 0;
   const total         = subtotal + delivery - promoDiscount;
-
-  useEffect(() => {
-    setIsLoggedIn(!!localStorage.getItem("access_token"));
-  }, []);
 
   const checkPromo = useCheckPromo();
 
