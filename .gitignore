@@ -1,0 +1,19 @@
+# Next.js
+.next/
+out/
+build/
+node_modules/
+.env*
+!.env.example
+
+# Testing
+coverage/
+.nyc_output/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
